@@ -1,0 +1,19 @@
+/* Image Styles */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.author-photo {
+  margin-block-end: var(--size-6);
+  text-align: center;
+}
+
+.author-photo img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

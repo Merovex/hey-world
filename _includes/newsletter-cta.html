@@ -1,0 +1,35 @@
+<div class="newsletter__cta">
+  <p class="newsletter__description">
+    <strong>Want to be the first to know when a new book is released?</strong> Subscribe for updates on new releases, behind-the-scenes content, and exclusive previews (or grab the <a href="{{ "/feed.xml" | relative_url }}">RSS feed</a>)
+  </p>
+  
+  <form 
+    action="https://buttondown.com/api/emails/embed-subscribe/bencwilson"
+    method="post"
+    target="popupwindow"
+    onsubmit="window.open('https://buttondown.com/bencwilson', 'popupwindow')"
+    class="newsletter__form"
+    data-controller="newsletter"
+  >
+    <div class="newsletter__form-group">
+      <label for="newsletter-email-input" class="visually-hidden">Email address for newsletter subscription</label>
+      <input 
+        type="email" 
+        name="email" 
+        id="newsletter-email-input"
+        placeholder="Enter your email address"
+        required
+        aria-describedby="newsletter-email-description"
+        class="newsletter__email-input"
+        data-newsletter-target="email"
+      >
+      <input type="hidden" value="1" name="embed">
+      <button type="submit" class="newsletter__submit-button" aria-describedby="newsletter-email-description">
+        Subscribe
+      </button>
+    </div>
+    <div id="newsletter-email-description" class="visually-hidden">
+      Subscribe to receive new blog posts and book release updates via email. You can unsubscribe at any time.
+    </div>
+  </form>
+</div>

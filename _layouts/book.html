@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+<article class="book-page">
+  <div class="book-page__warning">
+    <strong>Note:</strong> This is placeholder content for demonstration purposes. These books are not yet published.
+  </div>
+  
+  <section class="book-page__hero">
+    <div class="book-page__hero-content">
+      <div class="book-page__cover-large">
+        <div class="book-page__cover-placeholder">
+          Cover Coming Soon
+        </div>
+      </div>
+      <div class="book-page__details">
+        <h1 class="book-page__title">{{ page.title }}</h1>
+        <p class="book-page__subtitle">{{ page.subtitle | default: "A thrilling new adventure" }}</p>
+        <button class="book-page__buy-button" disabled>
+          Buy Now - Coming Soon
+        </button>
+      </div>
+    </div>
+  </section>
+
+  {% if page.introduction %}
+  <section class="book-page__section">
+    <h2>Introduction</h2>
+    <div class="book-page__content">
+      {{ page.introduction | markdownify }}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if page.back_cover %}
+  <section class="book-page__section">
+    <h2>From the Back Cover</h2>
+    <div class="book-page__content">
+      {{ page.back_cover | markdownify }}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if page.cover_flap %}
+  <section class="book-page__section">
+    <h2>From the Cover Flap</h2>
+    <div class="book-page__content">
+      {{ page.cover_flap | markdownify }}
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="book-page__newsletter">
+    {% include book-newsletter-cta.html %}
+  </section>
+</article>

@@ -1,0 +1,103 @@
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin-block-end: var(--size-4);
+  font-weight: var(--font-weight-6);
+  line-height: var(--font-lineheight-1);
+  max-width: 100%;;
+  color: var(--text-1);
+}
+
+h1 { 
+  font-size: var(--font-size-6); 
+  margin-block-start: var(--size-6);
+  margin-block-end: var(--size-4);
+}
+h2 { font-size: var(--font-size-5); }
+h3 { font-size: var(--font-size-4); }
+h4 { font-size: var(--font-size-3); }
+h5 { font-size: var(--font-size-2); }
+h6 { font-size: var(--font-size-1); }
+
+/* Explicit styles for sectioned h1 elements */
+section h1, article h1, aside h1, nav h1 {
+  font-size: var(--font-size-6);
+  margin-block-start: var(--size-6);
+  margin-block-end: var(--size-4);
+}
+
+p {
+  margin-block-end: var(--size-5);
+}
+
+a {
+  color: var(--link-color, var(--violet-7));
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover-color, var(--violet-8));
+  text-decoration: underline;
+}
+
+blockquote {
+  margin: var(--size-6) 0;
+  padding: var(--size-4) var(--size-5);
+  border-left: 4px solid var(--surface-3);
+  font-style: italic;
+  color: var(--text-2);
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-0);
+  background-color: var(--surface-2);
+  padding: var(--size-1) var(--size-2);
+  border-radius: var(--radius-1);
+}
+
+pre {
+  overflow-x: auto;
+  margin: var(--size-6) 0;
+  padding: var(--size-4);
+  background-color: var(--surface-2);
+  border-radius: var(--radius-2);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--surface-3);
+  margin: var(--size-7) 0;
+}
+
+.prose {
+  font-size: var(--font-size-3);  /* ~20px */
+  line-height: var(--font-lineheight-4);  /* 1.75 */
+  max-inline-size: var(--size-content-3);  /* ~60ch */
+  h2 {
+    font-size: var(--font-size-4);  /* ~24px */
+    margin-block-end: var(--size-5);
+  }
+  h3 {
+    font-size: var(--font-size-3);  /* ~20px */
+    margin-block-end: var(--size-4);  
+  }
+  ol, ul {
+    margin-block-end: var(--size-5);
+    padding-left: var(--size-4);
+  }
+}
+
+.lead {
+  font-size: var(--font-size-4);
+  font-weight: var(--font-weight-5);
+  color: var(--text-1);
+  margin-bottom: var(--size-6);
+}
+blockquote {
+  max-width: 100%;
+}

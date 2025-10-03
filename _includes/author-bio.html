@@ -1,0 +1,29 @@
+<section class="author-bio">
+  <div class="author-bio__content">
+    <div class="author-bio__avatar">
+      <picture>
+        <source srcset="{{ "/assets/images/avatar-new.webp" | relative_url }}" type="image/webp">
+        <img src="{{ "/assets/images/avatar-new.jpg" | relative_url }}" alt="{{ site.author }}" class="author-bio__avatar-image">
+      </picture>
+    </div>
+    <div class="author-bio__text">
+      <h2 class="author-bio__name">{{ site.author }}</h2>
+      <p class="author-bio__description--full">
+        Science fiction & fantasy author. Former soldier, former technologist, current skeptic of complicated solutions. 
+        I write about humans meeting the impossible. Civilization player. Grace-guided. Less, but better.
+      </p>
+      <div class="author-bio__links">
+        {% if site.twitter_username %}
+          <a href="https://twitter.com/{{ site.twitter_username }}" class="author-bio__link" target="_blank" rel="noopener">
+            <span class="author-bio__link-icon">🐦</span> @{{ site.twitter_username }}
+          </a>
+        {% endif %}
+        {% if site.email %}
+          <a href="mailto:{{ site.email }}" class="author-bio__link">
+            <span class="author-bio__link-icon">✉️</span> {{ site.email }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

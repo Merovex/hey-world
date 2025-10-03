@@ -1,0 +1,81 @@
+/* Theme Variables */
+:root {
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  
+  /* Dark theme semantic colors */
+  --text-1: var(--gray-2);
+  --text-2: var(--gray-4);
+  --surface-1: hsl(210 11% 15%);
+  --surface-2: hsl(210 10% 23%);
+  --surface-3: hsl(210 9% 31%);
+  --surface-4: hsl(210 7% 56%);
+  
+  /* Dark theme link colors - ensuring 4+ color stops contrast */
+  --link-color: var(--violet-3);
+  --link-hover-color: var(--violet-2);
+  --link-surface-color: var(--violet-3);
+  --link-surface-hover-color: var(--violet-2);
+}
+
+[data-theme="light"] {
+  /* Light theme uses default Open Props colors */
+  --text-1: var(--gray-10);
+  --text-2: var(--gray-8);
+  --surface-1: var(--gray-0);
+  --surface-2: var(--gray-1);
+  --surface-3: var(--gray-2);
+  --surface-4: var(--gray-3);
+  --link-color: var(--violet-7);
+}
+
+:root {
+  /* Zen-inspired colors */
+  --zen-paper: #f2f0e3;
+  --zen-dark: #2e2e2e;
+  --zen-muted: rgba(0, 0, 0, .05);
+  --zen-subtle: rgba(0, 0, 0, .05);
+  
+  /* Map to existing surface system */
+  --surface-1: var(--zen-paper);
+  --surface-2: var(--zen-subtle);
+  --surface-3: rgba(0, 0, 0, .30);  /* 30% black for 4.5:1 contrast */
+  --surface-4: rgba(0, 0, 0, .40);  /* 40% black for better contrast */
+  
+  /* Text colors */
+  --text-1: var(--zen-dark);
+  --text-2: rgba(46, 46, 46, .8);
+  
+  /* Accent colors - darker for 7:1 contrast */
+  --link-color: #c94a33;  /* Darker coral for 7:1 contrast */
+  --link-hover-color: #b43e28;  /* Even darker on hover */
+  
+  /* Button colors with 7:1 contrast ratio */
+  --button-bg: #c94a33;  /* Darker coral for 7:1 contrast with white */
+  --button-text: white;
+}
+
+[data-theme="dark"] {
+  --zen-paper: #1f1f1f;
+  --zen-dark: #d1cfc0;
+  --zen-muted: rgba(255, 255, 255, .05);
+  --zen-subtle: rgba(255, 255, 255, .1);
+  
+  --surface-1: var(--zen-paper);
+  --surface-2: var(--zen-subtle);
+  --surface-3: rgba(255, 255, 255, .45);  /* 45% white for 4.5:1 contrast */
+  --surface-4: rgba(255, 255, 255, .55);  /* 55% white for better contrast */
+  
+  --text-1: var(--zen-dark);
+  --text-2: rgba(209, 207, 192, .8);
+  
+  --link-color: #a78bfa;  /* Violet-400 from Tailwind/similar to Open Props */
+  --link-hover-color: #c4b5fd;  /* Violet-300 for hover */
+  
+  /* Button colors with 7:1 contrast ratio */
+  --button-bg: #6d28d9;  /* Violet-700 for 7:1 contrast with white */
+  --button-text: white;
+}

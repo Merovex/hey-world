@@ -1,0 +1,89 @@
+/* Author Section Component (for post footers) */
+.author-section {
+  margin: var(--size-7) 0;
+  padding: var(--size-6) 0;
+  border-top: 1px solid var(--surface-3);
+  border-bottom: 1px solid var(--surface-3);
+}
+
+/* Author Bio Component */
+.author-bio {
+  margin-bottom: var(--size-6);
+}
+
+.author-bio--simple {
+  margin-bottom: var(--size-6);
+  text-align: center;
+}
+
+.author-bio__title {
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-6);
+  text-transform: uppercase;
+  color: var(--text-1);
+  margin-bottom: var(--size-4);
+  text-align: center;
+  margin-inline: auto;
+}
+
+.author-bio__description {
+  color: var(--text-2);
+  margin-bottom: var(--size-4);
+  max-width: min(100%, var(--size-content-3));
+  margin-inline: auto;
+}
+
+.author-bio__links {
+  display: flex;
+  justify-content: center;
+  gap: var(--size-5);
+}
+
+.author-bio__link {
+  color: var(--text-2);
+  font-size: var(--font-size-0);
+}
+
+.author-bio__link:visited {
+  color: purple;
+}
+
+.author-bio__link:hover {
+  color: var(--text-1);
+  text-decoration: underline;
+}
+
+.author-bio__content {
+  display: flex;
+  gap: var(--size-6);
+  align-items: center;
+}
+
+.author-bio__avatar {
+  flex-shrink: 0;
+}
+
+.author-bio__avatar-image {
+  width: 128px;
+  height: 128px;
+  border-radius: var(--radius-3);
+  object-fit: cover;
+}
+
+.author-bio__text {
+  flex: 1;
+}
+
+.author-bio__name {
+  font-size: var(--font-size-6);
+  margin-bottom: var(--size-3);
+}
+
+.author-bio__description--full {
+  color: var(--text-2);
+  margin-bottom: var(--size-4);
+}
+
+.author-bio__link-icon {
+  margin-right: var(--size-2);
+}

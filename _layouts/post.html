@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post__header">
+    <time class="post__date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+      {{ page.date | date: "%-d %B %Y" }}
+    </time>
+    <h1 class="post__title" itemprop="name headline">{{ page.title | escape }}</h1>
+  </header>
+
+  <section class="prose" itemprop="articleBody">
+    {{ content }}
+  </section>
+
+  <footer class="post__footer">
+    {% include author-section.html %}
+    
+    <nav class="post__navigation">
+      {% if page.previous %}
+        <a href="{{ page.previous.url | relative_url }}" class="post__nav-link post__nav-link--previous">
+          ← {{ page.previous.title | truncate: 50 }}
+        </a>
+      {% endif %}
+      {% if page.next %}
+        <a href="{{ page.next.url | relative_url }}" class="post__nav-link post__nav-link--next">
+          {{ page.next.title | truncate: 50 }} →
+        </a>
+      {% endif %}
+    </nav>
+  </footer>
+</article>

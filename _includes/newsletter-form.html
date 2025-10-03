@@ -1,0 +1,39 @@
+<div class="newsletter newsletter--full">
+  <h3 class="newsletter__title">Want to be the first to know when a new book is released?</h3>
+  <p class="newsletter__description--full">
+    Subscribe for updates on new releases, behind-the-scenes content, and exclusive previews.
+  </p>
+  
+  <form 
+    action="https://buttondown.email/api/emails/embed-subscribe/bencwilson"
+    method="post"
+    target="popupwindow"
+    onsubmit="window.open('https://buttondown.email/bencwilson', 'popupwindow')"
+    class="newsletter__form"
+    data-controller="newsletter"
+  >
+    <div class="newsletter__form-group--full">
+      <label for="bd-email" class="visually-hidden">Enter your email</label>
+      <input 
+        type="email" 
+        name="email" 
+        id="bd-email"
+        placeholder="Enter your email address"
+        required
+        class="newsletter__email-input--full"
+        data-newsletter-target="email"
+      >
+      <input type="hidden" value="1" name="embed">
+      <button type="submit" class="newsletter__submit-button--full">
+        Subscribe
+      </button>
+    </div>
+    <p class="newsletter__privacy">
+      <small>No spam. Unsubscribe anytime.</small>
+    </p>
+  </form>
+  
+  <div class="newsletter__success" data-newsletter-target="success" style="display: none;">
+    <p>🎉 Thanks for subscribing! Check your email to confirm.</p>
+  </div>
+</div>

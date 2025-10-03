@@ -1,0 +1,14 @@
+/* Page Styles */
+.page__header {
+  margin-bottom: var(--size-6);
+  padding-bottom: var(--size-6);
+  border-bottom: 1px solid var(--gray-3);
+}
+
+.page__title {
+  font-size: var(--font-size-7);
+}
+
+.page__content {
+  font-size: var(--font-size-2);
+}

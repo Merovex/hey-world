@@ -1,0 +1,47 @@
+# Hey World Theme Configuration Example
+# Copy this file to your Jekyll site and customize the values
+
+# Required Site Settings
+title: Your Site Title
+email: your-email@example.com
+description: >-
+  Write a brief description of your site here. This will appear in
+  search engine results and social media previews.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://example.com" # your site's URL
+
+# Author Information
+author: Your Name
+author_bio: >-
+  Your bio here. Former something, current something else.
+  Write about what you do. Keep it brief but interesting.
+
+# Social Media (optional)
+twitter_username: yourusername
+github_username: yourusername
+
+# Build settings
+theme: hey-world
+plugins:
+  - jekyll-feed
+
+# HTML Compression (optional but recommended)
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - LICENSE

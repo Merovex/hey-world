@@ -1,0 +1,38 @@
+/* Archive Page Component */
+.archive__year {
+  font-size: var(--font-size-5);
+  color: var(--gray-6);
+  margin-top: var(--size-6);
+  margin-bottom: var(--size-4);
+}
+
+.archive__year:first-child {
+  margin-top: 0;
+}
+
+.archive__list {
+  list-style: none;
+  padding: 0;
+  margin-block-end: var(--size-6);
+}
+
+.archive__item {
+  display: flex;
+  gap: var(--size-4);
+  margin-bottom: var(--size-3);
+  align-items: baseline;
+}
+
+.archive__date {
+  color: var(--gray-5);
+  font-size: var(--font-size-0);
+  min-width: 3.5rem;
+}
+
+.archive__link {
+  color: var(--gray-9);
+}
+
+.archive__link:hover {
+  color: var(--violet-7);
+}

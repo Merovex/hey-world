@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<article class="library-chapter">
+  <nav class="library-chapter__breadcrumb">
+    <a href="{{ '/library/' | relative_url }}" class="library-chapter__breadcrumb-link">Library</a>
+    <span class="library-chapter__breadcrumb-separator">›</span>
+    {% assign book_path = page.url | split: '/' | slice: 0, 4 | join: '/' | append: '/' %}
+    {% assign book_page = site.pages | where: "url", book_path | first %}
+    {% if book_page %}
+      <a href="{{ book_page.url | relative_url }}" class="library-chapter__breadcrumb-link">{{ book_page.title }}</a>
+      <span class="library-chapter__breadcrumb-separator">›</span>
+    {% endif %}
+    <span class="library-chapter__breadcrumb-current">Chapter {{ page.chapter }}</span>
+  </nav>
+
+  <header class="library-chapter__header">
+    {% if page.chapter %}
+      <div class="library-chapter__number">Chapter {{ page.chapter }}</div>
+    {% endif %}
+    <h1 class="library-chapter__title">{{ page.title }}</h1>
+  </header>
+
+  <div class="library-chapter__content prose">
+    {{ content }}
+  </div>
+
+  <nav class="library-chapter__navigation">
+    {% assign book_folder = page.url | split: '/' | slice: 1, 3 | join: '/' %}
+    {% assign all_chapters = site.pages | where_exp: "page", "page.url contains book_folder" | where_exp: "page", "page.layout == 'library_chapter'" | sort: "order" %}
+    
+    {% assign current_index = 0 %}
+    {% for chapter in all_chapters %}
+      {% if chapter.url == page.url %}
+        {% assign current_index = forloop.index0 %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    
+    <div class="library-chapter__nav-links">
+      {% assign prev_index = current_index | minus: 1 %}
+      {% assign next_index = current_index | plus: 1 %}
+      
+      {% if prev_index >= 0 %}
+        {% assign prev_chapter = all_chapters[prev_index] %}
+        <a href="{{ prev_chapter.url | relative_url }}" class="library-chapter__nav-link library-chapter__nav-link--prev">
+          ← {{ prev_chapter.title }}
+        </a>
+      {% endif %}
+      
+      {% if next_index < all_chapters.size %}
+        {% assign next_chapter = all_chapters[next_index] %}
+        <a href="{{ next_chapter.url | relative_url }}" class="library-chapter__nav-link library-chapter__nav-link--next">
+          {{ next_chapter.title }} →
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="library-chapter__back-to-book">
+      {% assign book_path = page.url | split: '/' | slice: 0, 4 | join: '/' | append: '/' %}
+      {% assign book_page = site.pages | where: "url", book_path | first %}
+      {% if book_page %}
+        <a href="{{ book_page.url | relative_url }}" class="library-chapter__book-link">
+          📚 Back to {{ book_page.title }}
+        </a>
+      {% endif %}
+    </div>
+  </nav>
+</article>
