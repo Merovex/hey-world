@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "A clean, minimal Jekyll theme for authors and bloggers"
   spec.description   = "Hey World is a Jekyll theme designed for authors and bloggers who want a clean, accessible design with dark/light mode support, newsletter integration, and a focus on content."
-  spec.homepage      = "https://github.com/troybuzby/hey-world"
+  spec.homepage      = "https://github.com/merovex/hey-world"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 

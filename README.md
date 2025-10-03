@@ -142,7 +142,7 @@ To test the theme, run `bundle exec jekyll serve` and open your browser at `http
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/troybuzby/hey-world.
+Bug reports and pull requests are welcome on GitHub at https://github.com/merovex/hey-world.
 
 ## License
 
