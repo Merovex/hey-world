@@ -2,8 +2,8 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "hey-world"
-  spec.version       = "0.1.2"
-  spec.authors       = ["Troy Buzby"]
+  spec.version       = "0.1.3"
+  spec.authors       = ["Ben Wilson"]
   spec.email         = ["ben@merovex.com"]
 
   spec.summary       = "A clean, minimal Jekyll theme for authors and bloggers"

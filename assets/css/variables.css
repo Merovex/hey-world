@@ -50,11 +50,11 @@
   --text-2: rgba(46, 46, 46, .8);
   
   /* Accent colors - darker for 7:1 contrast */
-  --link-color: #c94a33;  /* Darker coral for 7:1 contrast */
-  --link-hover-color: #b43e28;  /* Even darker on hover */
+  --link-color: #007B7F;  /* Darker coral for 7:1 contrast */
+  --link-hover-color: #005c5f;  /* Even darker on hover */
   
   /* Button colors with 7:1 contrast ratio */
-  --button-bg: #c94a33;  /* Darker coral for 7:1 contrast with white */
+  --button-bg: #007B7F;  /* Darker coral for 7:1 contrast with white */
   --button-text: white;
 }
 
