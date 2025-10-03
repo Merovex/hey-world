@@ -73,9 +73,10 @@
   --text-2: rgba(209, 207, 192, .8);
   
   --link-color: #a78bfa;  /* Violet-400 from Tailwind/similar to Open Props */
-  --link-hover-color: #c4b5fd;  /* Violet-300 for hover */
+  --link-color: #ff7a79;
+  --link-hover-color: #ff9e9e;  /* Violet-300 for hover */
   
   /* Button colors with 7:1 contrast ratio */
-  --button-bg: #6d28d9;  /* Violet-700 for 7:1 contrast with white */
+  --button-bg: #ff7a79;  /* Violet-700 for 7:1 contrast with white */
   --button-text: white;
 }
