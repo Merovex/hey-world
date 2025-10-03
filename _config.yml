@@ -20,6 +20,10 @@ author_bio: >-
 twitter_username: yourusername
 github_username: yourusername
 
+# Newsletter Integration (optional)
+# To enable Buttondown newsletter forms, add your Buttondown username
+buttondown_username: yourusername
+
 # Build settings
 theme: hey-world
 plugins:

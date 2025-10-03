@@ -43,6 +43,9 @@ baseurl: "" # if your site is in a subdirectory
 # Optional settings
 twitter_username: yourusername
 github_username: yourusername
+
+# Newsletter Integration (Buttondown)
+buttondown_username: yourusername
 ```
 
 ### Layouts
@@ -78,13 +81,23 @@ The theme includes several reusable components:
 
 The theme includes an automatic dark/light mode toggle that saves user preference to localStorage. The toggle appears in the header.
 
-#### Newsletter Integration
+#### Newsletter Integration (Buttondown)
 
-Include a newsletter signup form in your posts or pages:
+The theme includes built-in Buttondown newsletter integration. To enable it:
 
-```liquid
-{% include newsletter-form.html %}
-```
+1. Add your Buttondown username to `_config.yml`:
+   ```yaml
+   buttondown_username: yourusername
+   ```
+
+2. Include newsletter signup forms in your posts or pages:
+   ```liquid
+   {% include newsletter-form.html %}        # Full-width newsletter form
+   {% include newsletter-cta.html %}         # Compact newsletter CTA
+   {% include book-newsletter-cta.html %}    # Book-specific newsletter CTA
+   ```
+
+The forms will automatically use your Buttondown username and handle subscriptions through Buttondown's embed API.
 
 #### Responsive Design
 

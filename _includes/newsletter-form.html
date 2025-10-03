@@ -4,11 +4,11 @@
     Subscribe for updates on new releases, behind-the-scenes content, and exclusive previews.
   </p>
   
-  <form 
-    action="https://buttondown.email/api/emails/embed-subscribe/bencwilson"
+  <form
+    action="https://buttondown.com/api/emails/embed-subscribe/{{ site.buttondown_username | default: 'your-username' }}"
     method="post"
     target="popupwindow"
-    onsubmit="window.open('https://buttondown.email/bencwilson', 'popupwindow')"
+    onsubmit="window.open('https://buttondown.com/{{ site.buttondown_username | default: 'your-username' }}', 'popupwindow')"
     class="newsletter__form"
     data-controller="newsletter"
   >

@@ -3,11 +3,11 @@
     <strong>Want to be the first to know when a new book is released?</strong> Subscribe for updates on new releases, behind-the-scenes content, and exclusive previews (or grab the <a href="{{ "/feed.xml" | relative_url }}">RSS feed</a>)
   </p>
   
-  <form 
-    action="https://buttondown.com/api/emails/embed-subscribe/bencwilson"
+  <form
+    action="https://buttondown.com/api/emails/embed-subscribe/{{ site.buttondown_username | default: 'your-username' }}"
     method="post"
     target="popupwindow"
-    onsubmit="window.open('https://buttondown.com/bencwilson', 'popupwindow')"
+    onsubmit="window.open('https://buttondown.com/{{ site.buttondown_username | default: 'your-username' }}', 'popupwindow')"
     class="newsletter__form"
     data-controller="newsletter"
   >
