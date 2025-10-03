@@ -78,6 +78,9 @@ hr {
   font-size: var(--font-size-3);  /* ~20px */
   line-height: var(--font-lineheight-4);  /* 1.75 */
   max-inline-size: var(--size-content-3);  /* ~60ch */
+  h1 {
+    display: none; /* Removing H1 since it's provided for Obsidian but not needed for Jekyll */
+  }
   h2 {
     font-size: var(--font-size-4);  /* ~24px */
     margin-block-end: var(--size-5);
