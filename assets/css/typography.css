@@ -70,6 +70,7 @@ pre code {
 
 pre.highlight {
   width: 100%;
+  line-height: 1;
 }
 
 hr {
