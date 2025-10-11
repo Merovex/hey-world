@@ -68,6 +68,10 @@ pre code {
   padding: 0;
 }
 
+pre.highlight {
+  width: 100%;
+}
+
 hr {
   border: 0;
   border-top: 1px solid var(--surface-3);
