@@ -117,6 +117,12 @@ table {
   font-size: var(--font-size-0);
 }
 
+.footer__copyright svg {
+  height: 1.5rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /* Legacy Footer Styles */
 .site-footer {
   background-color: var(--surface-2);
