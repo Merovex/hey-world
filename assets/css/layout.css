@@ -119,6 +119,7 @@ table {
 
 .footer__copyright svg {
   height: 1.5rem;
+  width: 1.5rem;
   display: inline-block;
   vertical-align: middle;
 }
