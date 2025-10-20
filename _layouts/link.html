@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<article class="link">
+  <header class="link__header">
+    <h1 class="link__title">
+      <a href="{{ page.link_url }}" class="link__external" rel="nofollow noopener" target="_blank">
+        {{ page.title }}
+      </a>
+    </h1>
+    <time class="link__date" datetime="{{ page.date | date_to_xmlschema }}">
+      {{ page.date | date: "%B %-d, %Y" }}
+    </time>
+  </header>
+
+  <div class="link__commentary">
+    {{ content }}
+  </div>
+
+  <footer class="link__footer">
+    <a href="{{ page.url | relative_url }}" class="link__permalink">Permalink</a>
+  </footer>
+</article>

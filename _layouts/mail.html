@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<article class="mail">
+  <header class="mail__header">
+    <p class="mail__notice">
+      What follows is an issue of my newsletter, recreated for you here in website form.
+      <a href="https://buttondown.email/{{ site.buttondown_username }}">Subscribe to get future issues via email</a>.
+    </p>
+    <h1 class="mail__title">{{ page.title }}</h1>
+    <time class="mail__date" datetime="{{ page.date | date_to_xmlschema }}">
+      {{ page.date | date: "%B %Y" }}
+    </time>
+  </header>
+
+  <div class="mail__content">
+    {{ content }}
+  </div>
+
+  <footer class="mail__footer">
+    <p class="mail__subscribe-cta">
+      Get essays like this delivered to your inbox monthly.
+      <a href="https://buttondown.email/{{ site.buttondown_username }}">Subscribe to the newsletter</a>.
+    </p>
+  </footer>
+</article>

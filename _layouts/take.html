@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<article class="take">
+  <header class="take__header">
+    <time class="take__date" datetime="{{ page.date | date_to_xmlschema }}">
+      {{ page.date | date: "%B %-d, %Y" }}
+    </time>
+  </header>
+
+  <div class="take__content">
+    {{ content }}
+  </div>
+
+  <footer class="take__footer">
+    <a href="{{ page.url | relative_url }}" class="take__permalink">Permalink</a>
+  </footer>
+</article>
