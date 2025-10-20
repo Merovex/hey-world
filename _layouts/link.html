@@ -2,23 +2,27 @@
 layout: default
 ---
 
-<article class="link">
-  <header class="link__header">
-    <h1 class="link__title">
-      <a href="{{ page.link_url }}" class="link__external" rel="nofollow noopener" target="_blank">
-        {{ page.title }}
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post__header">
+    <time class="post__date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+      {{ page.date | date: "%-d %B %Y" }}
+    </time>
+    <h1 class="post__title" itemprop="name headline">
+      <a href="{{ page.link_url }}" rel="nofollow noopener" target="_blank">
+        {{ page.title | escape }}
       </a>
     </h1>
-    <time class="link__date" datetime="{{ page.date | date_to_xmlschema }}">
-      {{ page.date | date: "%B %-d, %Y" }}
-    </time>
   </header>
 
-  <div class="link__commentary">
+  <section class="prose" itemprop="articleBody">
     {{ content }}
-  </div>
+  </section>
 
-  <footer class="link__footer">
-    <a href="{{ page.url | relative_url }}" class="link__permalink">Permalink</a>
+  <footer class="post__footer">
+    {% include author-section.html %}
+
+    <nav class="post__navigation">
+      <a href="{{ page.url | relative_url }}" class="post__nav-link">Permalink</a>
+    </nav>
   </footer>
 </article>

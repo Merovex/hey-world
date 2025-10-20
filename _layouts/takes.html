@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<div class="takes">
+  <header class="takes__header">
+    <h1 class="takes__title">{{ page.title | default: "Takes" }}</h1>
+    {% if page.description %}
+      <p class="takes__description">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <section class="takes__stream">
+    {% assign sorted_takes = site.takes | sort: 'date' | reverse %}
+
+    {% if paginator %}
+      {% for take in paginator.posts %}
+        {% include take-card.html %}
+      {% endfor %}
+    {% else %}
+      {% for take in sorted_takes %}
+        {% include take-card.html %}
+      {% endfor %}
+    {% endif %}
+  </section>
+
+  {% if paginator %}
+    <nav class="pagination" role="navigation" aria-label="Pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination__link pagination__link--previous">
+          ← Newer
+        </a>
+      {% endif %}
+
+      <span class="pagination__info">
+        Page {{ paginator.page }} of {{ paginator.total_pages }}
+      </span>
+
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}" class="pagination__link pagination__link--next">
+          Older →
+        </a>
+      {% endif %}
+    </nav>
+  {% endif %}
+</div>

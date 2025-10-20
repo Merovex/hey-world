@@ -1,0 +1,8 @@
+<article class="take-card">
+  <time class="take-card__date" datetime="{{ take.date | date_to_xmlschema }}">
+    <a href="{{ take.url | relative_url }}">{{ take.date | date: "%-d %B %Y at %-I:%M %p" }}</a>
+  </time>
+  <div class="take-card__content prose">
+    {{ take.content }}
+  </div>
+</article>

@@ -29,6 +29,13 @@ theme: hey-world
 plugins:
   - jekyll-feed
 
+# Collections (optional)
+# Uncomment to enable takes (microblog posts)
+# collections:
+#   takes:
+#     output: true
+#     permalink: /takes/:year-:month-:day-:hour:minute:second/
+
 # HTML Compression (optional but recommended)
 compress_html:
   clippings: all

@@ -1,0 +1,94 @@
+/* Takes Stream Layout */
+
+.takes {
+  max-width: var(--size-content-3);
+  margin-inline: auto;
+  padding-inline: var(--size-fluid-3);
+}
+
+.takes__header {
+  margin-block-end: var(--size-fluid-5);
+  text-align: center;
+}
+
+.takes__title {
+  font-size: var(--font-size-fluid-3);
+  font-weight: var(--font-weight-7);
+  margin-block-end: var(--size-2);
+}
+
+.takes__description {
+  color: var(--text-2);
+  font-size: var(--font-size-2);
+}
+
+/* Take Card */
+
+.take-card {
+  margin-block-end: var(--size-fluid-4);
+  padding-block-end: var(--size-fluid-4);
+  border-block-end: 1px solid var(--surface-3);
+}
+
+.take-card:last-child {
+  border-block-end: none;
+}
+
+.take-card__date {
+  display: block;
+  font-size: var(--font-size-1);
+  color: var(--text-2);
+  margin-block-end: var(--size-3);
+  font-weight: var(--font-weight-6);
+}
+
+.take-card__date a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.take-card__date a:hover {
+  color: var(--link-hover);
+}
+
+.take-card__content {
+  font-size: var(--font-size-2);
+  line-height: var(--font-lineheight-3);
+}
+
+.take-card__content > *:first-child {
+  margin-block-start: 0;
+}
+
+.take-card__content > *:last-child {
+  margin-block-end: 0;
+}
+
+/* Pagination */
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-start: var(--size-fluid-5);
+  padding-block-start: var(--size-fluid-4);
+  border-block-start: 2px solid var(--surface-3);
+}
+
+.pagination__link {
+  font-weight: var(--font-weight-6);
+  text-decoration: none;
+  padding: var(--size-2) var(--size-3);
+  border-radius: var(--radius-2);
+  background: var(--surface-2);
+  transition: background var(--transition-medium);
+}
+
+.pagination__link:hover {
+  background: var(--surface-3);
+}
+
+.pagination__info {
+  color: var(--text-2);
+  font-size: var(--font-size-1);
+}
