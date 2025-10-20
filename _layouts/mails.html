@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<div class="mails">
+  <header class="mails__header">
+    <h1 class="mails__title">{{ page.title | default: "Newsletter Archive" }}</h1>
+    {% if page.description %}
+      <p class="mails__description">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <section class="mails-list">
+    {% assign sorted_mails = site.mails | sort: 'date' | reverse %}
+    {% for mail in sorted_mails %}
+      {% include mail-card.html %}
+    {% endfor %}
+  </section>
+</div>

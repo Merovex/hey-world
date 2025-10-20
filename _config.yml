@@ -35,6 +35,9 @@ plugins:
 #   takes:
 #     output: true
 #     permalink: /takes/:year-:month-:day-:hour:minute:second/
+#   mails:
+#     output: true
+#     permalink: /mails/:title/
 
 # HTML Compression (optional but recommended)
 compress_html:
