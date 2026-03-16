@@ -1,6 +1,12 @@
 /* Theme Variables */
 :root {
   color-scheme: light;
+  --content-width: 98rem;
+  --font-size-base: 11px;
+  --font-size-medium: 1.8rem;
+  --font-family: -apple-system, BlinkMacSystemFont, Aptos, Roboto, "Segoe UI",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
 }
 
 [data-theme="dark"] {

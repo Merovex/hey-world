@@ -1,5 +1,6 @@
 /* Import Open Props */
 @import url("open-props.min.css");
+@import url("normalize.min.css");
 @import url("colors-hsl.min.css");
 
 /* Import base CSS files */

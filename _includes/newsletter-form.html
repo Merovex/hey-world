@@ -1,28 +1,18 @@
 <div class="newsletter newsletter--full">
-  <h3 class="newsletter__title">Want to be the first to know when a new book is released?</h3>
+  <h3 class="newsletter__title">Want to be the first to know when a FULL new book is released?</h3>
   <p class="newsletter__description--full">
     Subscribe for updates on new releases, behind-the-scenes content, and exclusive previews.
   </p>
-  
+
   <form
     action="https://buttondown.com/api/emails/embed-subscribe/{{ site.buttondown_username | default: 'your-username' }}"
-    method="post"
-    target="popupwindow"
+    method="post" target="popupwindow"
     onsubmit="window.open('https://buttondown.com/{{ site.buttondown_username | default: 'your-username' }}', 'popupwindow')"
-    class="newsletter__form"
-    data-controller="newsletter"
-  >
+    class="newsletter__form" data-controller="newsletter">
     <div class="newsletter__form-group--full">
       <label for="bd-email" class="visually-hidden">Enter your email</label>
-      <input 
-        type="email" 
-        name="email" 
-        id="bd-email"
-        placeholder="Enter your email address"
-        required
-        class="newsletter__email-input--full"
-        data-newsletter-target="email"
-      >
+      <input type="email" name="email" id="bd-email" placeholder="Enter your email address" required
+        class="newsletter__email-input--full" data-newsletter-target="email">
       <input type="hidden" value="1" name="embed">
       <button type="submit" class="newsletter__submit-button--full">
         Subscribe
@@ -32,7 +22,7 @@
       <small>No spam. Unsubscribe anytime.</small>
     </p>
   </form>
-  
+
   <div class="newsletter__success" data-newsletter-target="success" style="display: none;">
     <p>🎉 Thanks for subscribing! Check your email to confirm.</p>
   </div>

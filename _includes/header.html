@@ -1,30 +1,34 @@
 <header class="header">
   <label class="theme-toggle" data-controller="theme">
-    <input type="checkbox" data-action="change->theme#toggle" class="theme-toggle__input" aria-label="Toggle between dark and light theme">
+    <input type="checkbox" data-action="change->theme#toggle" class="theme-toggle__input"
+      aria-label="Toggle between dark and light theme">
     <span class="theme-toggle__slider" aria-hidden="true"></span>
     <span class="visually-hidden">Toggle theme</span>
   </label>
-  
+
   <div class="header__content">
     <div class="masthead">
       <a href="{{ "/" | relative_url }}" class="masthead__avatar">
-        <picture>
-          <source srcset="{{ "/assets/images/avatar-new.webp" | relative_url }}" type="image/webp">
-          <img src="{{ "/assets/images/avatar-new.jpg" | relative_url }}" alt="{{ site.author }}" class="masthead__image">
-        </picture>
+        {% include mark-name.svg %}
       </a>
-      <h1 class="masthead__title">{{ site.author }}, Author</h1>
+      <h1 class="masthead__title visually-hidden">{{ site.title }}</h1>
       {% if page.url == "/" %}
-        <p class="masthead__bio">
-          {{ site.author_bio }}
-        </p>
+      <p class="masthead__bio">
+        {{ site.author_bio }}
+      </p>
       {% endif %}
     </div>
     <nav class="nav" aria-label="Main navigation">
-      <a href="{{ "/" | relative_url }}" class="nav__link {% if page.url == "/" %}nav__link--active{% endif %}"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a>
-      <a href="{{ "/books" | relative_url }}" class="nav__link {% if page.url == "/books/" %}nav__link--active{% endif %}"{% if page.url == "/books/" %} aria-current="page"{% endif %}>Books</a>
-      <a href="{{ "/about" | relative_url }}" class="nav__link {% if page.url == "/about/" %}nav__link--active{% endif %}"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
-      <a href="{{ "/library" | relative_url }}" class="nav__link {% if page.url contains "/library" %}nav__link--active{% endif %}"{% if page.url contains "/library" %} aria-current="page"{% endif %}>Library</a>
+      <a href="{{ "/" | relative_url }}" class="nav__link {% if page.url == "/" %}nav__link--active{% endif %}"{% if
+        page.url=="/" %} aria-current="page" {% endif %}>Home</a>
+      <a href="{{ "/books/" | relative_url }}" class="nav__link {% if page.url == "/books/" %}nav__link--active{%
+        endif %}"{% if page.url=="/books/" %} aria-current="page" {% endif %}>Books</a>
+      <a href="{{ "/authors/" | relative_url }}" class="nav__link {% if page.url contains "/authors"
+        %}nav__link--active{% endif %}"{% if page.url contains "/authors" %} aria-current="page" {% endif %}>Authors</a>
+      <a href="{{ "/blog/" | relative_url }}" class="nav__link {% if page.url == "/blog/" or page.layout=="post"
+        %}nav__link--active{% endif %}"{% if page.url=="/blog/" %} aria-current="page" {% endif %}>Blog</a>
+      <a href="{{ "/essays/" | relative_url }}" class="nav__link {% if page.url contains "/essays"
+        %}nav__link--active{% endif %}"{% if page.url contains "/essays" %} aria-current="page" {% endif %}>Essays</a>
     </nav>
   </div>
   <hr class="header__divider">
