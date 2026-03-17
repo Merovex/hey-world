@@ -28,6 +28,7 @@ buttondown_username: yourusername
 theme: hey-world
 plugins:
   - jekyll-feed
+  - hey-world
 
 # Collections (optional)
 # Uncomment to enable takes (microblog posts)
