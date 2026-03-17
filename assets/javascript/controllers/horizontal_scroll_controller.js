@@ -30,6 +30,10 @@ export default class extends Controller {
       this.nextBtnTarget.disabled = atEnd;
       this.nextBtnTarget.classList.toggle("horizontal-scroll__btn--hidden", atEnd);
     }
+
+    // Fade hints for overflow
+    this.element.classList.toggle("horizontal-scroll__wrapper--fade-start", !atStart);
+    this.element.classList.toggle("horizontal-scroll__wrapper--fade-end", !atEnd);
   }
 
   scrollDistance() {

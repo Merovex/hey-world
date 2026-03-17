@@ -34,6 +34,33 @@
   display: none;
 }
 
+/* Overflow fade hints */
+.horizontal-scroll__wrapper::before,
+.horizontal-scroll__wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.horizontal-scroll__wrapper::before {
+  left: calc(-1 * var(--size-4));
+  background: linear-gradient(to right, var(--surface-1), transparent);
+}
+
+.horizontal-scroll__wrapper::after {
+  right: calc(-1 * var(--size-4));
+  background: linear-gradient(to left, var(--surface-1), transparent);
+}
+
+.horizontal-scroll__wrapper--fade-start::before { opacity: 1; }
+.horizontal-scroll__wrapper--fade-end::after { opacity: 1; }
+
 /* Navigation Buttons */
 .horizontal-scroll__btn {
   position: absolute;
