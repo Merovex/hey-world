@@ -31,6 +31,7 @@
 
 .newsletter__description a {
   color: var(--link-surface-color, var(--link-hover-color));
+  text-decoration: underline;
 }
 
 .newsletter__description a:hover {
