@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+if ARGV[0]
+  message = ARGV[0]
+  system("git add .")
+  system("git commit -m \"#{message}\"")
+end
+
+exec "git push origin master"
