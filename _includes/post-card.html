@@ -10,7 +10,7 @@
       {{ post.excerpt | strip_html }}
     </div>
   {% endif %}
-  <a class="post-card__link" aria-label="Post: {{ post.title | escape }}, on {{ post.date | date: '%B %-d, %Y' }}" href="{{ post.url | relative_url }}">Read more</a>
+  <a class="post-card__link" href="{{ post.url | relative_url }}">Read more<span class="visually-hidden">: {{ post.title | escape }}</span></a>
   <div class="post-card__more">
     <span class="post-card__button">Read more</span>
   </div>
