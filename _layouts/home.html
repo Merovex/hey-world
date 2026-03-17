@@ -10,13 +10,8 @@ layout: default
 
   <!-- Featured Books -->
   <section class="home-section">
-    <h2 class="home-section__title">Books</h2>
-    <div class="books-page__grid">
-      {% assign sorted_books = site.books | sort: 'order' %}
-      {% for book in sorted_books %}
-      {% include book-card.html book=book %}
-      {% endfor %}
-    </div>
+    {% assign sorted_books = site.books | sort: 'order' %}
+    {% include book-scroll.html books=sorted_books title="Books" %}
     <p class="home-section__more"><a href="{{ " /books/" | relative_url }}">View all books &rarr;</a></p>
   </section>
 

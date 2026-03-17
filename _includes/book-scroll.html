@@ -1,0 +1,53 @@
+{% comment %}
+  Renders a horizontal-scrolling book carousel.
+  Usage: {% include book-scroll.html books=site.books title="Books" %}
+  Required: books (array of book objects with title, url, cover_image)
+  Optional: title (section heading)
+{% endcomment %}
+
+{% assign books = include.books %}
+{% if books.size > 0 %}
+<div class="horizontal-scroll">
+  {% if include.title %}
+  <h2 class="horizontal-scroll__heading">{{ include.title }}</h2>
+  {% endif %}
+
+  <div class="horizontal-scroll__wrapper" data-controller="horizontal-scroll">
+    <button type="button"
+            class="horizontal-scroll__btn horizontal-scroll__btn--prev horizontal-scroll__btn--hidden"
+            data-horizontal-scroll-target="prevBtn"
+            data-action="click->horizontal-scroll#scrollPrev"
+            aria-label="Scroll left"
+            disabled>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img">
+        <path d="m15 18-6-6 6-6"></path>
+      </svg>
+    </button>
+
+    <div class="horizontal-scroll__track" data-horizontal-scroll-target="track">
+      {% for book in books %}
+      <a class="horizontal-scroll__item" href="{{ book.url | relative_url }}">
+        <div class="horizontal-scroll__cover">
+          {% if book.cover_image %}
+            <img src="{{ book.cover_image | relative_url }}" alt="{{ book.title }}" loading="lazy">
+          {% else %}
+            <span class="horizontal-scroll__cover--placeholder">{{ book.title }}</span>
+          {% endif %}
+        </div>
+        <p class="horizontal-scroll__title">{{ book.title }}</p>
+      </a>
+      {% endfor %}
+    </div>
+
+    <button type="button"
+            class="horizontal-scroll__btn horizontal-scroll__btn--next"
+            data-horizontal-scroll-target="nextBtn"
+            data-action="click->horizontal-scroll#scrollNext"
+            aria-label="Scroll right">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img">
+        <path d="m9 18 6-6-6-6"></path>
+      </svg>
+    </button>
+  </div>
+</div>
+{% endif %}

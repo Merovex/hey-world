@@ -1,0 +1,148 @@
+/* Horizontal Scroll Component
+ * ========================================================================== */
+
+.horizontal-scroll__heading {
+  font-size: var(--font-size-4);
+  margin-bottom: var(--size-4);
+  color: var(--text-1);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+/* Wrapper (positions nav buttons relative to track) */
+.horizontal-scroll__wrapper {
+  position: relative;
+}
+
+/* Track (scrollable area) */
+.horizontal-scroll__track {
+  display: flex;
+  gap: var(--size-5);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--size-4);
+  padding: var(--size-4);
+  margin: 0 calc(-1 * var(--size-4));
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.horizontal-scroll__track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Navigation Buttons */
+.horizontal-scroll__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-70%);
+  z-index: 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--surface-3);
+  background: var(--surface-1);
+  color: var(--text-1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.horizontal-scroll__btn:hover {
+  background: var(--surface-2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.horizontal-scroll__btn--prev { left: -0.5rem; }
+.horizontal-scroll__btn--next { right: -0.5rem; }
+
+.horizontal-scroll__btn--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Items */
+.horizontal-scroll__item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 160px;
+  text-decoration: none;
+  color: var(--text-1);
+  transition: transform 0.2s ease;
+}
+
+.horizontal-scroll__item:hover {
+  transform: translateY(-4px);
+  text-decoration: none;
+  color: var(--text-1);
+}
+
+/* Cover */
+.horizontal-scroll__cover {
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-2);
+  overflow: hidden;
+  background: var(--surface-2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.horizontal-scroll__item:hover .horizontal-scroll__cover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.horizontal-scroll__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.horizontal-scroll__cover--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--text-2);
+  font-size: var(--font-size-0);
+  text-align: center;
+  padding: var(--size-3);
+}
+
+/* Title */
+.horizontal-scroll__title {
+  margin-top: var(--size-2);
+  font-size: var(--font-size-0);
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .horizontal-scroll__item {
+    width: 180px;
+  }
+
+  .horizontal-scroll__track {
+    gap: var(--size-6);
+  }
+}
+
+/* Hide nav buttons on touch devices */
+@media (hover: none) {
+  .horizontal-scroll__btn {
+    display: none;
+  }
+}
