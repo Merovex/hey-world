@@ -1,0 +1,54 @@
+/* Squeeze Page Layout */
+.squeeze {
+  flex: 1;
+  max-width: 600px;
+  margin-inline: auto;
+  padding: var(--size-6) var(--size-3);
+  text-align: center;
+}
+
+.squeeze__headline {
+  font-size: var(--font-size-5);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--size-6);
+}
+
+.squeeze__content {
+  text-align: left;
+  margin-bottom: var(--size-6);
+  color: var(--text-2);
+  font-size: var(--font-size-2);
+}
+
+/* Magnet grid — uses book-item classes for cards */
+.squeeze__magnets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--size-5);
+  margin-bottom: var(--size-6);
+}
+
+/* Trust and proof lines */
+.squeeze__trust {
+  font-size: var(--font-size-0);
+  color: var(--text-2);
+  margin-bottom: var(--size-3);
+}
+
+.squeeze__proof {
+  font-size: var(--font-size-1);
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+/* Responsive: stack magnets on mobile */
+@media (max-width: 768px) {
+  .squeeze__headline {
+    font-size: var(--font-size-4);
+  }
+
+  .squeeze__magnets {
+    grid-template-columns: 1fr;
+  }
+}

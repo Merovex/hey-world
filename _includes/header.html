@@ -15,6 +15,7 @@
         Independent Publisher
       </p>
     </div>
+    {% unless include.hide_nav %}
     <nav class="nav" aria-label="Main navigation">
       <a href="{{ "/" | relative_url }}" class="nav__link {% if page.url == "/" %}nav__link--active{% endif %}"{% if
         page.url=="/" %} aria-current="page" {% endif %}>Home</a>
@@ -27,6 +28,9 @@
       <a href="{{ "/notes/" | relative_url }}" class="nav__link {% if page.url contains "/notes"
         %}nav__link--active{% endif %}"{% if page.url contains "/notes" %} aria-current="page" {% endif %}>Notebook</a>
     </nav>
+    {% endunless %}
   </div>
+  {% unless include.hide_nav %}
   <hr class="header__divider">
+  {% endunless %}
 </header>
