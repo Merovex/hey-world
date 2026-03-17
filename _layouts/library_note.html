@@ -1,0 +1,67 @@
+---
+layout: default
+---
+
+<article class="library-note">
+  <nav class="library-note__breadcrumb">
+    <a href="{{ '/library/' | relative_url }}" class="library-note__breadcrumb-link">Library</a>
+    <span class="library-note__breadcrumb-separator">›</span>
+    {% assign topic_path = page.url | split: '/' | slice: 0, 4 | join: '/' | append: '/' %}
+    {% assign topic_page = site.pages | where: "url", topic_path | first %}
+    {% if topic_page %}
+      <a href="{{ topic_page.url | relative_url }}" class="library-note__breadcrumb-link">{{ topic_page.title }}</a>
+      <span class="library-note__breadcrumb-separator">›</span>
+    {% endif %}
+    <span class="library-note__breadcrumb-current">{{ page.title }}</span>
+  </nav>
+
+  <header class="library-note__header">
+    <h1 class="library-note__title">{{ page.title }}</h1>
+  </header>
+
+  <div class="library-note__content prose">
+    {{ content }}
+  </div>
+
+  <nav class="library-note__navigation">
+    {% assign topic_folder = page.url | split: '/' | slice: 1, 3 | join: '/' %}
+    {% assign all_notes = site.pages | where_exp: "page", "page.url contains topic_folder" | where_exp: "page", "page.layout == 'library_note'" | sort: "order" %}
+    
+    {% assign current_index = 0 %}
+    {% for note in all_notes %}
+      {% if note.url == page.url %}
+        {% assign current_index = forloop.index0 %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    
+    <div class="library-note__nav-links">
+      {% assign prev_index = current_index | minus: 1 %}
+      {% assign next_index = current_index | plus: 1 %}
+      
+      {% if prev_index >= 0 %}
+        {% assign prev_note = all_notes[prev_index] %}
+        <a href="{{ prev_note.url | relative_url }}" class="library-note__nav-link library-note__nav-link--prev">
+          ← {{ prev_note.title }}
+        </a>
+      {% endif %}
+      
+      {% if next_index < all_notes.size %}
+        {% assign next_note = all_notes[next_index] %}
+        <a href="{{ next_note.url | relative_url }}" class="library-note__nav-link library-note__nav-link--next">
+          {{ next_note.title }} →
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="library-note__back-to-topic">
+      {% assign topic_path = page.url | split: '/' | slice: 0, 4 | join: '/' | append: '/' %}
+      {% assign topic_page = site.pages | where: "url", topic_path | first %}
+      {% if topic_page %}
+        <a href="{{ topic_page.url | relative_url }}" class="library-note__topic-link">
+          📚 Back to {{ topic_page.title }}
+        </a>
+      {% endif %}
+    </div>
+  </nav>
+</article>

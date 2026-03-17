@@ -25,8 +25,8 @@ layout: default
           {% if page.category %}
             <span class="library-topic__category">{{ page.category }}</span>
           {% endif %}
-          {% if page.essay_count %}
-            <span class="library-topic__count">{{ page.essay_count }} essays</span>
+          {% if page.note_count %}
+            <span class="library-topic__count">{{ page.note_count }} notes</span>
           {% endif %}
         </div>
       </div>
@@ -47,23 +47,23 @@ layout: default
   </section>
 
   <section class="library-topic__toc">
-    <h2>Essays</h2>
-    <div class="library-topic__essays">
+    <h2>Notes</h2>
+    <div class="library-topic__notes">
       {% assign topic_folder = page.url | split: '/' | slice: 1, 3 | join: '/' %}
-      {% assign essays = site.pages | where_exp: "page", "page.url contains topic_folder" | where_exp: "page", "page.layout == 'library_essay'" | sort: "order" %}
+      {% assign notes = site.pages | where_exp: "page", "page.url contains topic_folder" | where_exp: "page", "page.layout == 'library_note'" | sort: "order" %}
       
-      {% if essays.size > 0 %}
-        <ol class="library-topic__essay-list">
-          {% for essay in essays %}
-            <li class="library-topic__essay-item">
-              <a href="{{ essay.url | relative_url }}" class="library-topic__essay-link">
-<span class="library-topic__essay-title">{{ essay.title }}</span>
+      {% if notes.size > 0 %}
+        <ol class="library-topic__note-list">
+          {% for note in notes %}
+            <li class="library-topic__note-item">
+              <a href="{{ note.url | relative_url }}" class="library-topic__note-link">
+<span class="library-topic__note-title">{{ note.title }}</span>
               </a>
             </li>
           {% endfor %}
         </ol>
       {% else %}
-        <p class="library-topic__no-essays">No essays available yet.</p>
+        <p class="library-topic__no-notes">No notes available yet.</p>
       {% endif %}
     </div>
   </section>

@@ -24,8 +24,8 @@
         %}nav__link--active{% endif %}"{% if page.url contains "/authors" %} aria-current="page" {% endif %}>Authors</a>
       <a href="{{ "/blog/" | relative_url }}" class="nav__link {% if page.url == "/blog/" or page.layout=="post"
         %}nav__link--active{% endif %}"{% if page.url=="/blog/" %} aria-current="page" {% endif %}>Blog</a>
-      <a href="{{ "/essays/" | relative_url }}" class="nav__link {% if page.url contains "/essays"
-        %}nav__link--active{% endif %}"{% if page.url contains "/essays" %} aria-current="page" {% endif %}>Essays</a>
+      <a href="{{ "/notes/" | relative_url }}" class="nav__link {% if page.url contains "/notes"
+        %}nav__link--active{% endif %}"{% if page.url contains "/notes" %} aria-current="page" {% endif %}>Notebook</a>
     </nav>
   </div>
   <hr class="header__divider">
