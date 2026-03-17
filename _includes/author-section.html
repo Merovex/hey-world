@@ -1,12 +1,16 @@
+{% assign author_data = site.data.authors[page.author] %}
+{% if author_data %}
 <section class="author-section">
   <div class="author-bio author-bio--simple">
-    <h3 class="author-bio__title">About {{ site.author }}</h3>
+    <h3 class="author-bio__title">About {{ author_data.name }}</h3>
     <p class="author-bio__description">
-      {{ site.author_bio }}
+      {{ author_data.bio }}
     </p>
+    <a href="{{ author_data.url | relative_url }}" class="author-bio__more">More by {{ author_data.name }} &rarr;</a>
   </div>
-  
+
   <div class="newsletter newsletter--simple">
-    {% include newsletter-cta.html %}
+    {% include newsletter-cta.html author=author_data %}
   </div>
 </section>
+{% endif %}

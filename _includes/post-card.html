@@ -1,16 +1,17 @@
-<article>
-  <a href="{{ post.url | relative_url }}" class="post-card" aria-label="Read post: {{ post.title | escape }}">
+<article class="post-card">
+  <header class="post-card__header">
     <time class="post-card__date" datetime="{{ post.date | date_to_xmlschema }}">
-      {{ post.date | date: "%-d %B %Y" }}
+      {{ post.date | date: "%B %-d, %Y" }}
     </time>
     <h2 class="post-card__title">{{ post.title | escape }}</h2>
-    {% if post.excerpt %}
-      <div class="post-card__excerpt" aria-hidden="true">
-        {{ post.excerpt | strip_html }}
-      </div>
-    {% endif %}
-    <div class="post-card__footer">
-      <span class="post-card__button">Take a peek →</span>
+  </header>
+  {% if post.excerpt %}
+    <div class="post-card__excerpt">
+      {{ post.excerpt | strip_html }}
     </div>
-  </a>
+  {% endif %}
+  <a class="post-card__link" aria-label="Post: {{ post.title | escape }}, on {{ post.date | date: '%B %-d, %Y' }}" href="{{ post.url | relative_url }}">Read more</a>
+  <div class="post-card__more">
+    <span class="post-card__button">Read more</span>
+  </div>
 </article>

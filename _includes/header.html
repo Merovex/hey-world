@@ -11,12 +11,9 @@
       <a href="{{ "/" | relative_url }}" class="masthead__avatar">
         {% include mark-name.svg %}
       </a>
-      <h1 class="masthead__title visually-hidden">{{ site.title }}</h1>
-      {% if page.url == "/" %}
       <p class="masthead__bio">
-        {{ site.author_bio }}
+        Independent Publisher
       </p>
-      {% endif %}
     </div>
     <nav class="nav" aria-label="Main navigation">
       <a href="{{ "/" | relative_url }}" class="nav__link {% if page.url == "/" %}nav__link--active{% endif %}"{% if

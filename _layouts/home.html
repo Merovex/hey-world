@@ -3,13 +3,49 @@ layout: default
 ---
 
 <div class="home">
+  <!-- Hero Section -->
   <section class="newsletter newsletter--home">
     {% include newsletter-cta.html %}
   </section>
 
-  <section class="blog-posts">
-    {% for post in site.posts %}
+  <!-- Featured Books -->
+  <section class="home-section">
+    <h2 class="home-section__title">Books</h2>
+    <div class="books-page__grid">
+      {% assign sorted_books = site.books | sort: 'order' %}
+      {% for book in sorted_books %}
+      {% include book-card.html book=book %}
+      {% endfor %}
+    </div>
+    <p class="home-section__more"><a href="{{ " /books/" | relative_url }}">View all books &rarr;</a></p>
+  </section>
+
+  <!-- Authors -->
+  <section class="home-section">
+    <h2 class="home-section__title">Our Authors</h2>
+    <div class="author-cards">
+      {% for author_entry in site.data.authors %}
+      {% assign ak = author_entry[0] %}
+      {% include author-card.html author_key=ak %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Recent Blog Posts -->
+  {% if site.posts.size > 0 %}
+  <section class="home-section">
+    <h2 class="home-section__title">Recent Posts</h2>
+    <div class="blog-posts">
+      {% for post in site.posts limit:5 %}
       {% include post-card.html %}
-    {% endfor %}
+      {% endfor %}
+    </div>
+    <p class="home-section__more"><a href="{{ " /blog/" | relative_url }}">View all posts &rarr;</a></p>
+  </section>
+  {% endif %}
+
+  <!-- Newsletter -->
+  <section class="newsletter newsletter--home">
+    {% include newsletter-cta.html %}
   </section>
 </div>

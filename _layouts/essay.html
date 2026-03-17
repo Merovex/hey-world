@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<article class="post" itemscope itemtype="http://schema.org/Article">
+  <header class="post__header">
+    <time class="post__date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+      {{ page.date | date: "%-d %B %Y" }}
+    </time>
+    <h1 class="post__title" itemprop="name headline">{{ page.title | escape }}</h1>
+    {% assign author_data = site.data.authors[page.author] %}
+    {% if author_data %}
+      <span class="post__author">by <a href="{{ author_data.url | relative_url }}">{{ author_data.name }}</a></span>
+    {% endif %}
+  </header>
+
+  <section class="prose" itemprop="articleBody">
+    {{ content }}
+  </section>
+
+  <footer class="post__footer">
+    {% include author-section.html %}
+  </footer>
+</article>

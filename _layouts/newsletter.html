@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post__header">
+    <time class="post__date" datetime="{{ page.date | date_to_xmlschema }}">
+      {{ page.date | date: "%-d %B %Y" }}
+    </time>
+    <h1 class="post__title">{{ page.title | escape }}</h1>
+    {% if page.issue_number %}
+      <span class="post__issue">Issue #{{ page.issue_number }}</span>
+    {% endif %}
+  </header>
+
+  <section class="prose">
+    {{ content }}
+  </section>
+
+  <footer class="post__footer">
+    {% include newsletter-cta.html %}
+  </footer>
+</article>

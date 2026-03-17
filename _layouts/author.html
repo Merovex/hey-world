@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+{% assign author_data = site.data.authors[page.author_key] %}
+
+<article class="author-profile">
+  <header class="author-profile__header">
+    {% if author_data.avatar %}
+      <div class="author-profile__avatar">
+        <img src="{{ author_data.avatar | relative_url }}" alt="{{ author_data.name }}" class="author-profile__image">
+      </div>
+    {% endif %}
+    <div class="author-profile__info">
+      <h1 class="author-profile__name">{{ page.title }}</h1>
+      <p class="author-profile__genres">{{ author_data.genres | join: " &middot; " }}</p>
+    </div>
+  </header>
+
+  <section class="author-profile__bio prose">
+    {{ content }}
+  </section>
+
+  <!-- Author's Books -->
+  {% assign author_books = site.books | where: "author", page.author_key | sort: "series_order" %}
+  {% if author_books.size > 0 %}
+  <section class="author-profile__section">
+    <h2>Books</h2>
+    <div class="books-page__grid">
+      {% for book in author_books %}
+        {% include book-card.html book=book %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Author's Posts -->
+  {% assign author_posts = site.posts | where: "author", page.author_key %}
+  {% if author_posts.size > 0 %}
+  <section class="author-profile__section">
+    <h2>Recent Posts</h2>
+    <div class="blog-posts">
+      {% for post in author_posts limit:5 %}
+        {% include post-card.html %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Author's Essays -->
+  {% assign author_essays = site.essays | where: "author", page.author_key %}
+  {% if author_essays.size > 0 %}
+  <section class="author-profile__section">
+    <h2>Essays</h2>
+    <div class="blog-posts">
+      {% for post in author_essays %}
+        {% include post-card.html %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="author-profile__newsletter">
+    {% include newsletter-cta.html author=author_data %}
+  </section>
+</article>

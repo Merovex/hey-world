@@ -1,0 +1,27 @@
+{% comment %}
+  Renders a book card. Pass the book object via include.book.
+  Usage: {% include book-card.html book=book %}
+{% endcomment %}
+{% assign book = include.book %}
+{% if book %}
+<div class="book-item">
+  <a href="{{ book.url | relative_url }}" class="book-item__link">
+    <div class="book-item__cover-container">
+      {% if book.cover_image %}
+        <img src="{{ book.cover_image | relative_url }}" alt="{{ book.title }}" class="book-item__cover-image" loading="lazy">
+      {% else %}
+        <div class="book-item__cover">
+          Cover Coming Soon
+        </div>
+      {% endif %}
+    </div>
+    <h3 class="book-item__title">{{ book.title }}</h3>
+    {% if book.series %}
+      {% assign series_data = site.data.series[book.series] %}
+      {% if series_data %}
+        <p class="book-item__series">{{ series_data.name }}</p>
+      {% endif %}
+    {% endif %}
+  </a>
+</div>
+{% endif %}

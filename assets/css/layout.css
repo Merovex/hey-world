@@ -54,7 +54,11 @@ table {
 .masthead__avatar {
   display: block;
   margin-bottom: var(--size-4);
-  max-width: var(--size-content-1);
+  max-width: max(20ch, var(--size-content-1));
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .masthead__image {

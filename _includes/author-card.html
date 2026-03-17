@@ -1,0 +1,17 @@
+{% comment %}
+  Renders a compact author card. Pass author data via include.author_key.
+  Usage: {% include author-card.html author_key="ben-wilson" %}
+{% endcomment %}
+{% assign author = site.data.authors[include.author_key] %}
+{% if author %}
+<div class="author-card">
+  <a href="{{ author.url | relative_url }}" class="author-card__link">
+    <div class="author-card__avatar">
+      <img src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" class="author-card__image" loading="lazy">
+    </div>
+    <h3 class="author-card__name">{{ author.name }}</h3>
+    <p class="author-card__genres">{{ author.genres | join: " &middot; " }}</p>
+    <p class="author-card__bio">{{ author.bio }}</p>
+  </a>
+</div>
+{% endif %}

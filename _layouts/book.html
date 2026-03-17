@@ -2,33 +2,54 @@
 layout: default
 ---
 
+{% assign author_data = site.data.authors[page.author] %}
+{% assign series_data = site.data.series[page.series] %}
+
 <article class="book-page">
-  <div class="book-page__warning">
-    <strong>Note:</strong> This is placeholder content for demonstration purposes. These books are not yet published.
-  </div>
-  
   <section class="book-page__hero">
     <div class="book-page__hero-content">
       <div class="book-page__cover-large">
+        {% if page.cover_image %}
+        <img src="{{ page.cover_image | relative_url }}" alt="{{ page.title }}" class="book-page__cover-img">
+        {% else %}
         <div class="book-page__cover-placeholder">
           Cover Coming Soon
         </div>
+        {% endif %}
       </div>
       <div class="book-page__details">
         <h1 class="book-page__title">{{ page.title }}</h1>
-        <p class="book-page__subtitle">{{ page.subtitle | default: "A thrilling new adventure" }}</p>
+        {% if page.subtitle %}
+        <p class="book-page__subtitle">{{ page.subtitle }}</p>
+        {% endif %}
+        {% if series_data %}
+        <p class="book-page__series-badge">{{ series_data.name }}{% if page.series_order %} #{{ page.series_order }}{%
+          endif %}</p>
+        {% endif %}
+        {% if author_data %}
+        <p class="book-page__author">by <a href="{{ author_data.url | relative_url }}">{{ author_data.name }}</a></p>
+        {% endif %}
+        {% if page.amazon_url %}
+        <a href="{{ page.amazon_url }}" class="book-page__buy-button" target="_blank" rel="noopener">
+          Get This Book
+        </a>
+        {% else %}
         <button class="book-page__buy-button" disabled>
-          Buy Now - Coming Soon
+          Coming Soon
         </button>
+        {% endif %}
       </div>
     </div>
   </section>
 
-  {% if page.introduction %}
+  {% if page.description or content != "" %}
   <section class="book-page__section">
-    <h2>Introduction</h2>
+    <h2>About This Book</h2>
     <div class="book-page__content">
-      {{ page.introduction | markdownify }}
+      {% if page.description %}
+      {{ page.description | markdownify }}
+      {% endif %}
+      {{ content }}
     </div>
   </section>
   {% endif %}
@@ -42,16 +63,24 @@ layout: default
   </section>
   {% endif %}
 
-  {% if page.cover_flap %}
+  <!-- More books in this series -->
+  {% if page.series %}
+  {% assign series_books = site.books | where: "series", page.series | sort: "series_order" %}
+  {% if series_books.size > 1 %}
   <section class="book-page__section">
-    <h2>From the Cover Flap</h2>
-    <div class="book-page__content">
-      {{ page.cover_flap | markdownify }}
+    <h2>More in the {{ series_data.name }} Series</h2>
+    <div class="books-page__grid">
+      {% for book in series_books %}
+      {% unless book.url == page.url %}
+      {% include book-card.html book=book %}
+      {% endunless %}
+      {% endfor %}
     </div>
   </section>
   {% endif %}
+  {% endif %}
 
   <section class="book-page__newsletter">
-    {% include book-newsletter-cta.html %}
+    {% include newsletter-cta.html %}
   </section>
 </article>
